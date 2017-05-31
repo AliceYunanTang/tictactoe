@@ -50,7 +50,7 @@ body {
   box-sizing: border-box;
   width: 400px;
   height: 400px;
-  background: white;
+  background: darkgrey;
 }
 
 
@@ -74,4 +74,11 @@ body {
 .scoreboard {
   flex: 1;
   display: flex;
+  justify-content: space-around;
+}
+
+.scoreCell {
+  flex: 1;
+  text-align: center
+
 }
