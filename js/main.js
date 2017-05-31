@@ -89,52 +89,51 @@ var game = {
 $(document).ready(function(){
   var $p1Score = $('#p1-score');
   var $p2Score = $('#p2-score');
-  var $drawScore = $('draw-score');
+  var $drawScore = $('#draw-score');
   var $cells = $('.cell');
+  var $win = $('.winAnimation');
 
   var updateScoreUI = function (p){
     $p.text(game.scores[p]);
-  }
+  };
 
-  var updateBoard = function() {
+  var clearBoard = function() {
     $('.cell').text(' ');
-  }
+  };
+
+  var animateWin = function() {
+
+    $win.show().delay(5000).hide('fast','swing',function(){
+      clearBoard();
+      game.switchTurn();
+      });
+  };
 
   $cells.on('click',function(){
 
     var cellId = parseInt($(this).attr('id'));
     var m = game.move(cellId);
     $(this).text(game.state.turn);
-    // debugger;
+
     switch (m) {
       case 'i': break;
       case 'x':
+        $win.text('X WON!');
         $p1Score.text(game.scores['x']);
-          $('.cell').text(' ');
-            game.switchTurn();
+        animateWin();
         break;
       case 'o':
+        $win.text('O WON!')
         $p2Score.text(game.scores['o']);
-          $('.cell').text(' ');
-            game.switchTurn();
+        animateWin();
         break;
       case 'd':
-        $drawScore.text(game.state.turn);
-          $('.cell').text(' ');
-        game.switchTurn();
+        $win.text('DRAW!')
+        $drawScore.text(game.scores['d']);
+        animateWin();
         break;
       case 'c':  game.switchTurn();
         break;
     }
-
-
-
-
-    // setTimeout(function(){
-  // game.switchTurn();
-    // },1000);
-
-    // game.switchTurn();
-
   });
 });

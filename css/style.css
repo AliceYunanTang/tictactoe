@@ -1,11 +1,13 @@
 body {
+  font-family: 'Source Code Pro', monospace;
   height: 100vh;
   width: 100vw;
   margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: Teal;
+  background-color: rgb(234,67,53);
+  color: white;
 }
 
 .info {
@@ -15,48 +17,42 @@ body {
 }
 
 .info h1 {
+  font-family: 'Butterfly Kids', cursive;
+  font-size: 77px;
   margin: auto;
 }
 
 .main {
   flex: 3;
   display: flex;
+  width:90%;
+  margin: 0 auto;
   flex-direction: row;
+  justify-content: center;
 }
 
-.main-middle {
-  flex: 2;
-}
 .main-left , .main-right{
-  flex: 1;
+
 }
 
-/*.container {
-  flex: 1;
-  max-width: 767px;
-  position: relative;
-  margin: 0
-  top: 20%;
-}*/
 .main-middle {
   flex:1;
   display: flex;
+  flex-direction: column;
 }
 
 .board {
-
   display: flex;
-  flex: 1;
-  margin:auto;
+  margin:0;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 400px;
-  height: 400px;
-  background: darkgrey;
+  width: 100%;
+  height: 100%;
+  background: white;
 }
 
 
@@ -74,7 +70,7 @@ body {
   font-size: 100px;
   text-align: center;
   line-height: 100%;
-  background-color: teal;
+  background-color: rgb(234,67,53);
 }
 
 .scoreboard {
@@ -84,11 +80,30 @@ body {
 }
 
 .scoreCell {
+  flex: 1;
   text-align: center;
   margin: auto;
   font-size: 20px;
   color: white;
-  border: 2px solid white;
-  padding: 10px 30px;
+  border: 4px solid white;
+  padding: 10px 20px;
+  border-radius: 50%;
+  flex-shrink: 1;
+}
+
+.winAnimation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,0,0,0.5);
+  background: url('../img/fireworks-animation-19-2.gif');
+  background-size: cover;
+  opacity: 1;
+  color: white;
+  display: none;
+  font-size: 80px;
+  line-height: 380px;
+  text-align: center;
+  list-style: 180px;
   border-radius: 50%;
 }
