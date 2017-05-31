@@ -1,84 +1,77 @@
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
 body {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: Teal;
 }
 
-header {
-  width: 100%;
-  height: 157px;
+.info {
+  flex-basis: 50vh;
+  flex: 1;
+  display: flex;
 }
 
-nav {
-  height: 48px;
-  width: 100%;
-  color: #333;
-  background-color: rgba(0,0,0,0.8);
+.info h1 {
+  margin: auto;
 }
 
-h1 {
-  text-align: center;
+.main {
+  flex: 3;
+  display: flex;
+  flex-direction: row;
 }
 
-.container {
+.main-middle {
+  flex: 2;
+}
+.main-left , .main-right{
+  flex: 1;
+}
+
+/*.container {
+  flex: 1;
   max-width: 767px;
   position: relative;
-  margin: 0 auto;
+  margin: 0
   top: 20%;
-  background-color: rgb(235, 228, 242);
-}
+}*/
+
 
 .board {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
-  width: 350px;
-  height: 350px;
-  /*background: black;*/
-  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 400px;
+  height: 400px;
+  background: white;
 }
 
-.scoreboard {
-  position: relative;
-  width: 100%;
-  height: 100px;
-}
-
-.scoreboard p {
-  font-size: 38px;
-  text-align: center;
-}
 
 .row {
   display: flex;
-  flex-flow: row nowrap;
   width: 100%;
-  height: 33%;
+  flex-basis: 31%;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .cell {
-  flex: 1;
-  flex-basis: 33%;
-  border: 4px solid black;
+  flex-basis: 31%;
+  justify-content: space-between;
   font-size: 100px;
   text-align: center;
   line-height: 100%;
+  background-color: teal;
 }
 
-.board .top {
-  border-top: none;
-}
-
-.board .left {
-  border-left: none;
-}
-
-.board .right {
-  border-right: none;
-}
-
-.board .bottom {
-  border-bottom: none;
+.scoreboard {
+  flex: 1;
+  display: flex;
 }
