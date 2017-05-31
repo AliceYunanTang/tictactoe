@@ -2,7 +2,13 @@ var game = {
   board:  [" ", " ", " ", " ", " ", " ", " ", " ", " "],
   size: 3, // 3x3
   scores: {"x":0,"o":0,"d":0},
-  state: {counter:0,turn:'x',result:'i',winningLine:[],over:false},
+  state: {
+    counter:0,
+    turn:'x',
+    result:'i',
+    winningLine:[],
+    over:false
+  },
   winningCases:[[0,1,2],[3,4,5],[6,7,8],
         [0,3,6],[1,4,7],[2,5,8],
         [0,4,8],[2,4,6]],
@@ -95,6 +101,7 @@ $(document).ready(function(){
   }
 
   $cells.on('click',function(){
+
     var cellId = parseInt($(this).attr('id'));
     var m = game.move(cellId);
     $(this).text(game.state.turn);
@@ -112,7 +119,7 @@ $(document).ready(function(){
             game.switchTurn();
         break;
       case 'd':
-        $drawScore.text(game.scores['d']);
+        $drawScore.text(game.state.turn);
           $('.cell').text(' ');
         game.switchTurn();
         break;
