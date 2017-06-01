@@ -13,6 +13,12 @@ var game = {
         [0,3,6],[1,4,7],[2,5,8],
         [0,4,8],[2,4,6]],
 
+  resetScore: function() {
+    this.scores.x=0;
+    this.scores.o=0;
+    this.scores.d=0;
+  },
+
   // after each move, change game state, return
   // the winner, or draw, or continue,
   // or "i" (ignore), if cell already occupied
@@ -93,6 +99,7 @@ $(document).ready(function(){
   var $drawScore = $('#draw-score');
   var $cells = $('.cell');
   var $win = $('.winAnimation');
+  var $scoreReset = $('#reset-scoreboard');
 
   // load scores from localStorage and update game.scores
   if (localStorage.getItem("TicTacToeScores" ) === null) {
@@ -115,7 +122,7 @@ $(document).ready(function(){
 
   // animation after win, show hidden html div .winAnimation with .gif background
   var animateWin = function() {
-    $win.css('background','url("img/fireworks-animation-19-2.gif")');
+    $win.css({'background':'url("img/fireworks-animation-19-2.gif")','background-size':'cover'});
     $win.show().delay(5000).hide('fast','swing',function(){
       clearBoard();
       game.switchTurn();
@@ -123,7 +130,7 @@ $(document).ready(function(){
   };
 
   var animateDraw = function() {
-    $win.css('background','url("img/200w.gif")');
+      $win.css({'background':'url("img/200w.gif")','background-size':'cover'});
       $win.show().delay(5000).hide('fast','swing',function(){
       clearBoard();
       game.switchTurn();
@@ -158,7 +165,7 @@ $(document).ready(function(){
         localStorage.setItem("TicTacToeScores", JSON.stringify(game.scores));
         $win.text('DRAW!')
         $drawScore.text(game.scores['d']);
-        animateDraw();
+        animateWin();
         break;
       case 'c':  game.switchTurn(); // continue game.
         break;
@@ -172,6 +179,14 @@ $(document).ready(function(){
     }
   },function(){
     $(this).removeClass('cell-' + game.state.turn + '-hover');
+  });
+
+  $scoreReset.on('click',function(){
+    game.resetScore();
+    localStorage.setItem("TicTacToeScores", JSON.stringify(game.scores));
+    $p1Score.text(game.scores['x']);
+    $p2Score.text(game.scores['o']);
+    $drawScore.text(game.scores['d']);
   });
 
 });
