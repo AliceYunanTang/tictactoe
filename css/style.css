@@ -6,7 +6,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(234,67,53);
+  background-color: teal;
+  /*background-color: rgb(234,67,53);*/
   color: white;
 }
 
@@ -32,11 +33,11 @@ body {
 }
 
 .main-left , .main-right{
-
+  flex: 1;
 }
 
 .main-middle {
-  flex:1;
+  flex: 2;
   display: flex;
   flex-direction: column;
 }
@@ -70,7 +71,26 @@ body {
   font-size: 100px;
   text-align: center;
   line-height: 100%;
-  background-color: rgb(234,67,53);
+  background-color: teal;
+  /*background-color: rgb(234,67,53);*/
+}
+
+.cell-x-hover {
+  opacity: 0.5;
+}
+
+.cell-x-hover::before {
+  content: "x";
+  color: darkgrey;
+}
+
+.cell-o-hover {
+  opacity: 0.5;
+}
+
+.cell-o-hover::before {
+  content: "o";
+  color: darkgrey;
 }
 
 .scoreboard {
@@ -95,7 +115,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(255,0,0,0.5);
+  background-color: teal;
   background: url('../img/fireworks-animation-19-2.gif');
   background-size: cover;
   opacity: 1;

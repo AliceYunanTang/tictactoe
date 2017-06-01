@@ -87,53 +87,91 @@ var game = {
 };
 
 $(document).ready(function(){
+
   var $p1Score = $('#p1-score');
   var $p2Score = $('#p2-score');
   var $drawScore = $('#draw-score');
   var $cells = $('.cell');
   var $win = $('.winAnimation');
 
+  // load scores from localStorage and update game.scores
+  if (localStorage.getItem("TicTacToeScores" ) === null) {
+    localStorage.setItem("TicTacToeScores", JSON.stringify(game.scores));
+  } else {
+    game.scores = JSON.parse(localStorage.getItem("TicTacToeScores"));
+    $p1Score.text(game.scores['x']);
+    $p2Score.text(game.scores['o']);
+    $drawScore.text(game.scores['d']);
+  }
+
   var updateScoreUI = function (p){
     $p.text(game.scores[p]);
   };
 
+  // clear game board UI
   var clearBoard = function() {
     $('.cell').text(' ');
   };
 
+  // animation after win, show hidden html div .winAnimation with .gif background
   var animateWin = function() {
-
+    $win.css('background','url("img/fireworks-animation-19-2.gif")');
     $win.show().delay(5000).hide('fast','swing',function(){
       clearBoard();
       game.switchTurn();
       });
   };
 
+  var animateDraw = function() {
+    $win.css('background','url("img/200w.gif")');
+      $win.show().delay(5000).hide('fast','swing',function(){
+      clearBoard();
+      game.switchTurn();
+    });
+  }
+
+  // game cell click event callback, call game.move method,
+  // check return result from game.move, update UI accordingly
   $cells.on('click',function(){
 
     var cellId = parseInt($(this).attr('id'));
-    var m = game.move(cellId);
+    var m = game.move(cellId);  // call game.mover, store result in m;
     $(this).text(game.state.turn);
 
+    $(this).removeClass('cell-' + game.state.turn + '-hover');
+
     switch (m) {
-      case 'i': break;
-      case 'x':
+      case 'i': break;            //ignore, if occupied cell clicked, do nothing
+      case 'x':                   // player x won, show animation
+        localStorage.setItem("TicTacToeScores", JSON.stringify(game.scores));
         $win.text('X WON!');
         $p1Score.text(game.scores['x']);
         animateWin();
         break;
-      case 'o':
+      case 'o':                    // play o won, show animation
+        localStorage.setItem("TicTacToeScores", JSON.stringify(game.scores));
         $win.text('O WON!')
         $p2Score.text(game.scores['o']);
         animateWin();
         break;
-      case 'd':
+      case 'd':                   // draw, show 'cats game' animation, to be completed!!!!!
+        localStorage.setItem("TicTacToeScores", JSON.stringify(game.scores));
         $win.text('DRAW!')
         $drawScore.text(game.scores['d']);
-        animateWin();
+        animateDraw();
         break;
-      case 'c':  game.switchTurn();
+      case 'c':  game.switchTurn(); // continue game.
         break;
     }
   });
+
+  $cells.hover(function(){
+    // var cellId = parseInt($(this).attr('id'));  //this.id
+    if(game.board[this.id]===' ') {
+      $(this).addClass('cell-' + game.state.turn +  '-hover');
+    }
+  },function(){
+    $(this).removeClass('cell-' + game.state.turn + '-hover');
+  });
+
 });
