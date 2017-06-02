@@ -189,4 +189,7 @@ $(document).ready(function(){
     $drawScore.text(game.scores['d']);
   });
 
+
+  var fizzyText = new FizzyText('tic tac toe');
+
 });

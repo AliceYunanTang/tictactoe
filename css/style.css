@@ -17,7 +17,7 @@ body {
   display: flex;
 }
 
-.info h1 {
+.info h1, #fizzytext {
   font-family: 'Butterfly Kids', cursive;
   font-size: 77px;
   margin: auto;

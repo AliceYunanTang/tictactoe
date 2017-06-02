@@ -1,9 +1,9 @@
 
-# Tic Tac Toe
+# Top Heading
 
-This is the first project in General Assembly, a simple tic tac toe game.
+Here is some normal text
 
-Here is the live site [check it out](https://alliceyunantang.github.io/TicTacToe/index.html)
+Here is [my live site](http://fillmurry.com)
 
 ![fill murray](http://fillmurray.com/400/300)
 
