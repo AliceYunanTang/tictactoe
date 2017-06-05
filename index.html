@@ -7,26 +7,28 @@
   <link rel="stylesheet" href="fa/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Butterfly+Kids" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
   <script src = "js/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.js"></script>
-  <script src= "js/fizzytext.js"></script>
   <script src = "js/main.js"></script>
   <title>Tic Tac Toe</title>
 </head>
 <body>
 
   <div class="info">
-    <!-- <h1>tic tac toe</h1> -->
-    <div id='fizzytext'></div>
-    <div id='controlpanel'></div>
+    <h1><span class="is-secondary-color">tic</span> tac <span class="is-primary-color">metro</span></h1>
+    <div class="size">
+      <div class="size-cell" id="3x3">3x3</div>
+      <div class="size-cell" id="4x4">4x4</div>
+    </div>
+    <div class="game-message">
+      <span class="is-secondary-color">player 1</span> move</div>
+    </div>
   </div>
 
   <div class="main">
     <div class="main-left">
-
     </div>
-
     <div class="main-middle">
       <div class="board">
         <div class="row">
@@ -47,16 +49,26 @@
         <div class="winAnimation">win</div>
       </div>
     </div>
-
     <div class="main-right">
 
     </div>
   </div>
   <div class="scoreboard">
-      <div class="scoreCell"><i class="fa fa-times">:</i> <span id="p1-score">0</span> </div>
+      <div class="scoreCell">P1:<span id="p1-score">0</span> </div>
       <div class="scoreCell">D: <span id="draw-score">0</span></div>
-      <div class="scoreCell"><i class="fa fa-circle-o">:</i> <span id="p2-score">0</span></div>
+      <div class="scoreCell">P2:<span id="p2-score">0</span></div>
       <button class="scoreCell" id="reset-scoreboard" type="button">reset scoreboard</button>
+      <button class="scoreCell" id="player-selection-button" type="button">select character</button>
+  </div>
+
+  <div class="player-selection-menu is-hidden" id="player-selection-menu">
+    <div class="player-selection-message">choose <span class="is-secondary-color">player 1</span> character</div>
+    <div class="player-icon-choice"><img src="./img/avatar1.png" alt=""></div>
+    <div class="player-icon-choice"><img src="./img/avatar2.png" alt=""></div>
+    <div class="player-icon-choice"><img src="./img/avatar3.png" alt=""></div>
+    <div class="player-icon-choice"><img src="./img/avatar4.png" alt=""></div>
+    <div class="player-icon-choice"><img src="./img/avatar5.png" alt=""></div>
+    <div class="player-icon-choice"><img src="./img/avatar6.png" alt=""></div>
   </div>
 
 </body>

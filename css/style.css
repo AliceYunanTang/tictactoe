@@ -1,5 +1,5 @@
 body {
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'Gochi Hand', monospace;
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -7,20 +7,56 @@ body {
   flex-direction: column;
   justify-content: center;
   /*background-color: teal;*/
-  background-color: rgb(234,67,53);
+  /*background-color: rgb(234,67,53);*/
+  background-color: #ddd1b7;
+  /*background-color: #95d3c4;*/
   color: white;
 }
 
-.info {
-  flex-basis: 50vh;
-  flex: 1;
-  display: flex;
+button {
+  background-color: transparent;
+  border-radius: 0;
 }
 
-.info h1, #fizzytext {
-  font-family: 'Butterfly Kids', cursive;
-  font-size: 77px;
-  margin: auto;
+button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.info {
+  flex: 1;
+  height: 15%;
+}
+.info h1 {
+  font-family: 'Gochi Hand', monospace;
+  font-size: 90px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.game-message {
+  font-size: 50px;
+  text-align: center;
+  position: relative;
+}
+
+.game-message::before {
+  content: "";
+  height: 2px;
+  background-color: white;
+  width: 40%;
+  position: absolute;
+  top: -2px;
+  left: 30%;
+}
+
+.spacer {
+  flex: 1;
+}
+.size {
+  display: flex;
+  justify-content: center;
 }
 
 .main {
@@ -28,7 +64,7 @@ body {
   display: flex;
   max-width: 600px;
   width:90%;
-  margin: 0 auto;
+  margin: 30px auto;
   flex-direction: row;
   justify-content: center;
 }
@@ -69,31 +105,47 @@ body {
 .cell {
   flex-basis: 31%;
   justify-content: space-between;
-  font-size: 100px;
+  font-size: 140px;
   text-align: center;
-  line-height: 100%;
   /*background-color: teal;*/
-  background-color: rgb(234,67,53);
+  /*background-color: rgb(234,67,53);*/
+  background-color: #ddd1b7;
+  /*background-color: #95d3c4;*/
+  font-family: 'Gochi Hand', moplayer1Characterospace;
+}
+
+.cell > img {
+  width: 80px;
+  margin-top: 15px;
 }
 
 .cell-x-hover {
   opacity: 0.5;
   cursor: pointer;
+  background-color: #95d3c4;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .cell-x-hover::before {
-  content: "x";
-  color: darkgrey;
+  content: "";
+
+  opacity: 0.5;
 }
 
 .cell-o-hover {
   opacity: 0.5;
   cursor: pointer;
+  background-color: #f69697;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .cell-o-hover::before {
-  content: "o";
-  color: darkgrey;
+  content: "";
+
 }
 
 .scoreboard {
@@ -103,21 +155,32 @@ body {
   justify-content: center;
 }
 
-.scoreCell {
-  /*flex: 1;*/
+.scoreCell, .size-cell {
   text-align: center;
   margin: auto 6px;
-  font-size: 20px;
+  font-size: 25px;
   color: white;
   border: 2px solid white;
   padding: 8px 14px;
-  border-radius: 10%;
   flex-shrink: 1;
+}
+
+.size-cell {
+  display: none;
+}
+
+#p1-score {
+  color: #95d3c4;
+}
+#p2-score {
+  color: #f69697;
 }
 
 #reset-scoreboard {
   /*background-color: teal;*/
-  background-color: rgb(234,67,53);
+  /*background-color: rgb(234,67,53);*/
+  background-color: #ddd1b7;
+  /*background-color: #95d3c4;*/
 }
 
 #reset-scoreboard:hover {
@@ -141,4 +204,78 @@ body {
   text-align: center;
   list-style: 180px;
   border-radius: 50%;
+}
+
+
+.player-selection-menu {
+  position: fixed;
+  top: 15%;
+  left: 20%;
+  width: 60%;
+  height: 55%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.player-selection-message {
+  width: 100%;
+  font-size: 50px;
+  background-color: #ddd1b7;
+  border-top: 2px solid white;
+  text-align: center;
+}
+
+.player-icon-choice {
+  width: 33%;
+  height: 50%;
+  box-sizing: border-box;
+  border: 2px solid white;
+  display: flex;
+  background-color: #ddd1b7;
+}
+
+.player-icon-choice:hover {
+  cursor: pointer;
+}
+
+.player-icon-choice img {
+  /*width: 100%;*/
+  height: 100%;
+  margin: auto;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.is-primary-color {
+  color: #f69697;
+}
+.is-secondary-color {
+  color: #95d3c4;
+}
+
+
+/*      Mobile Phones   */
+
+@media (max-width: 600px) {
+  .info h1 {
+    font-size: 50px;
+
+  }
+
+  .main {
+    margin: 15px auto;
+  }
+
+  .cell {
+    font-size: 70px;
+  }
+
+  .cell img {
+    width: auto;
+    height: 80%;
+  }
 }
