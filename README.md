@@ -3,7 +3,7 @@
 ##Overview
 Play a game of tic tac toe in the theme of dumb ways to die. Remember to be safe around trains.
 
-Here is the live site [check it out](https://alliceyunantang.github.io/TicTacToe/index.html)
+Here is the live site [check it out](https://aliceyunantang.github.io/TicTacToe/index.html)
 
 ![cover image](./img/cover-image.jpg)
 
